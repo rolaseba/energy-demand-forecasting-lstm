@@ -1,3 +1,21 @@
+"""
+GPU Status Checker
+==================
+
+This script checks the availability and status of GPU devices for both
+PyTorch and TensorFlow frameworks. It provides information about:
+- CUDA availability
+- GPU device names
+- Framework-specific GPU detection
+
+Usage:
+    python check_gpu_status.py
+
+Requirements:
+    - PyTorch
+    - TensorFlow
+"""
+
 import torch
 import tensorflow as tf
 
