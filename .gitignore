@@ -10,3 +10,8 @@ wheels/
 .venv
 best_lstm_model.h5
 README-old.md
+.continue/agents/new-config.yaml
+.gitignore
+notebook-energy.py
+.continue
+model/long_train
