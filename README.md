@@ -1,5 +1,7 @@
 # LSTM Energy Demand Prediction Model
 
+![Electricity Demand Forecast](reports/figs/forecast.png)
+
 ## 📈 Business Overview
 
 ### Business Problem
@@ -161,6 +163,18 @@ python check_gpu_status.py
 ---
 
 ## 📊 Results & Insights
+
+![Electricity Demand Forecast - Full Context](reports/figs/forecast.png)
+
+![Detailed Forecast View](reports/figs/forecast-zoomed.png)
+
+### Model Performance Metrics
+
+| Metric | Value | Assessment |
+|--------|-------|-----------|
+| **MAE** (Mean Absolute Error) | 320.21 MW | Excellent - low average prediction error |
+| **RMSE** (Root Mean Square Error) | 1456.82 MW | Good - reasonable error magnitude |
+| **MAPE** (Mean Absolute Percentage Error) | 3.95% | ✅ Excellent (< 5% target met) |
 
 The trained LSTM model demonstrates:
 - Strong correlation with actual demand patterns
