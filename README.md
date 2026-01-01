@@ -184,7 +184,7 @@ The trained LSTM model demonstrates:
 ## 📁 Project Structure
 
 ```
-lstm-prediction-model/
+energy-demand-forecasting-lstm/
 ├── notebook-energy.ipynb          # Main analysis notebook
 ├── notebook-energy.py             # Executable Python version
 ├── notebook-test.ipynb            # Validation experiments
