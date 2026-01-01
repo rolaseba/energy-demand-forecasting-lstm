@@ -58,18 +58,16 @@ This LSTM-based forecasting model predicts hourly electricity demand patterns wi
 
 #### Network Configuration
 ```
-Input: Sequence of 30 hourly observations (7.5 days)
+Input: Sequence of 168 hourly observations (1 week)
   ↓
-LSTM Layer 1: 50 units + return_sequences=True
+LSTM Layer 1: 128 units + Batch Normalization + return_sequences=True
   → Dropout: 0.2
   ↓
-LSTM Layer 2: 50 units + return_sequences=True
+LSTM Layer 2: 64 units + Batch Normalization + return_sequences=True
   → Dropout: 0.2
   ↓
-LSTM Layer 3: 25 units
+LSTM Layer 3: 32 units + Batch Normalization
   → Dropout: 0.2
-  ↓
-Dense Layer: 25 units (ReLU activation)
   ↓
 Output Layer: 1 unit (single-step prediction)
 ```
@@ -77,20 +75,25 @@ Output Layer: 1 unit (single-step prediction)
 #### Key Hyperparameters
 | Parameter | Value | Rationale |
 |-----------|-------|-----------|
-| Sequence Length | 30 hours | Captures 1.25-day patterns |
-| LSTM Units (L1-L2) | 50 | Sufficient complexity for pattern capture |
-| LSTM Units (L3) | 25 | Progressive dimensionality reduction |
-| Dropout Rate | 0.2 | Regularization without over-dampening |
+| Sequence Length | 168 hours | Captures full-week patterns with diurnal cycles |
+| LSTM Units (L1) | 128 | Deep learning with sufficient complexity |
+| LSTM Units (L2) | 64 | Progressive dimensionality reduction |
+| LSTM Units (L3) | 32 | Further refinement for final predictions |
+| Dropout Rate | 0.2 | Regularization (20% neuron drop) |
+| Batch Normalization | After each LSTM | Stabilizes training and faster convergence |
+| L2 Regularization | 0.001 | Prevents overfitting |
+| Gradient Clipping | 1.0 | Prevents exploding gradients |
 | Optimizer | Adam | Adaptive learning rate, fast convergence |
 | Learning Rate | 0.001 | Stable, long-term convergence |
 | Loss Function | MSE | Appropriate for regression, penalizes large errors |
+| Total Parameters | 129,313 | Optimized model complexity |
 
 #### Training Configuration
-- **Early Stopping**: Monitor validation loss, patience=15 epochs
-- **Model Checkpoint**: Save best model based on validation MAE
-- **Learning Rate Reduction**: Reduce on plateau (factor=0.5, patience=5)
-- **Batch Size**: 32 samples
-- **Epochs**: Up to 100 (with early stopping)
+- **Early Stopping**: Monitor validation loss, patience=10 epochs
+- **Batch Size**: 64 samples
+- **Max Epochs**: 50
+- **Learning Rate**: 0.001 (default Adam optimizer)
+- **Model Checkpoint**: Save best model based on validation performance
 
 ### Data Pipeline
 
@@ -101,7 +104,7 @@ Output Layer: 1 unit (single-step prediction)
 - **Rationale**: Simulates real-world scenario where future data is unknown
 
 #### 2. Sequence Creation
-- **Window Size**: 30 timesteps (sequence length)
+- **Window Size**: 168 timesteps (1-week history)
 - **Stride**: 1 (creates overlapping sequences)
 - **Output**: Next timestep prediction (t+1)
 - **Format**: 3D arrays compatible with LSTM input
