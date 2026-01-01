@@ -114,7 +114,6 @@ Output Layer: 1 unit (single-step prediction)
 | File | Purpose |
 |------|---------|
 | `notebook-energy.ipynb` | Complete end-to-end pipeline with visualizations |
-| `notebook-energy.py` | Python script version of the notebook |
 | `notebook-test.ipynb` | Testing and validation experiments |
 | `best_lstm_model.keras` | Production model (best validation performance) |
 | `check_gpu_status.py` | GPU availability verification for training |
@@ -151,9 +150,6 @@ pip install tensorflow pandas numpy matplotlib seaborn plotly scikit-learn openp
 ```bash
 # Execute the notebook for full pipeline
 jupyter notebook notebook-energy.ipynb
-
-# Or run the Python version
-python notebook-energy.py
 ```
 
 ### GPU Support
@@ -186,7 +182,6 @@ The trained LSTM model demonstrates:
 ```
 energy-demand-forecasting-lstm/
 ├── notebook-energy.ipynb          # Main analysis notebook
-├── notebook-energy.py             # Executable Python version
 ├── notebook-test.ipynb            # Validation experiments
 ├── check_gpu_status.py            # GPU verification script
 ├── datasets/
