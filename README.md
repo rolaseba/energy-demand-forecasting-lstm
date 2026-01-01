@@ -118,10 +118,9 @@ Output Layer: 1 unit (single-step prediction)
 
 | File | Purpose |
 |------|---------|
-| `notebook-energy.ipynb` | Complete end-to-end pipeline with visualizations |
-| `notebook-test.ipynb` | Testing and validation experiments |
-| `best_lstm_model.keras` | Production model (best validation performance) |
-| `check_gpu_status.py` | GPU availability verification for training |
+| `model/best_lstm_model.keras` | Trained LSTM model (best validation performance) |
+| `model/scaler.pkl` | StandardScaler object for feature normalization |
+| `model/training_history.pkl` | Training and validation metrics history |
 
 ### Performance Metrics
 
