@@ -1,5 +1,7 @@
 # Strategic Energy Demand Forecasting App
 
+![Electricity Demand Forecast](figs/screenshot.png)
+
 ## ⚡ Overview
 
 This Streamlit application serves as a **Business Intelligence & Forecasting Interface** for the **[Energy Demand Forecasting LSTM](https://github.com/rolaseba/energy-demand-forecasting-lstm)** project.
@@ -79,6 +81,48 @@ The app relies on **4 pre-processed Parquet files** located in `datasets/process
     if len(input_data) != required_seq_len:
         st.error(f"Input must be {required_seq_len} hours long")
     ```
+
+---
+
+## 🧠 Data Science & Model Architecture
+
+![Electricity Demand Forecast](figs/screenshot-2.png)
+
+The core of this application is a **Long Short-Term Memory (LSTM)** neural network, specifically designed for multi-step time-series forecasting.
+
+### Network Architecture
+The model uses a stacked LSTM architecture with progressive dimensionality reduction to capture complex temporal dependencies.
+
+```text
+Input Sequence: (Batch Size, 168, 1)  ← 1 Week of History
+      ↓
+[LSTM Layer 1] 128 Units + Batch Normalization + Return Sequences
+      ↓      (Captures high-level temporal features)
+[Dropout 0.2]
+      ↓
+[LSTM Layer 2] 64 Units + Batch Normalization + Return Sequences
+      ↓      (Intermediate feature processing)
+[Dropout 0.2]
+      ↓
+[LSTM Layer 3] 32 Units + Batch Normalization
+      ↓      (Refinement of temporal signals)
+[Dropout 0.2]
+      ↓
+[Dense Layer] 1 Unit
+      ↓
+Output: (Batch Size, 1)  ← Next Hour Prediction (t+1)
+```
+
+### Key Hyperparameters
+*   **Optimizer**: Adam (`lr=0.001`)
+*   **Loss Function**: Mean Squared Error (MSE)
+*   **Input Window**: 168 hours (1 full week) allows the model to "see" daily cycles and weekly seasonality.
+*   **Regularization**: Dropout (0.2) + Batch Normalization after each recurrent layer to prevent overfitting.
+
+### Performance (Test Set)
+*   **MAPE**: 3.95% (Excellent forecasting accuracy)
+*   **RMSE**: 1456.82 MW
+*   **MAE**: 320.21 MW
 
 ---
 
