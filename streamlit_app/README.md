@@ -120,9 +120,12 @@ Output: (Batch Size, 1)  ← Next Hour Prediction (t+1)
 *   **Regularization**: Dropout (0.2) + Batch Normalization after each recurrent layer to prevent overfitting.
 
 ### Performance (Test Set)
-*   **MAPE**: 3.95% (Excellent forecasting accuracy)
-*   **RMSE**: 1456.82 MW
-*   **MAE**: 320.21 MW
+*   **MAPE (Mean Absolute Percentage Error)**: 3.95%
+    *   *Interpretation*: On average, predictions are off by only ~4%. Values below 5% are considered excellent for grid forecasting.
+*   **MAE (Mean Absolute Error)**: 320.21 MW
+    *   *Interpretation*: The average gap between predicted and actual demand is ~320 MW (on a grid of ~8,000+ MW).
+*   **RMSE (Root Mean Square Error)**: 1456.82 MW
+    *   *Interpretation*: Penalizes larger errors more heavily. A metric used to detect significant deviations or outliers.
 
 ---
 
