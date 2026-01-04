@@ -187,6 +187,30 @@ def predict_future(model, scaler, history_window, horizon=96):
 
 ---
 
+## 💻 Run Locally
+
+To run this application on your local machine:
+
+1.  **Navigate to the app directory**:
+
+    ```bash
+    cd streamlit_app
+    ```
+
+2.  **Install dependencies**:
+
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+3.  **Launch the App**:
+
+    ```bash
+    streamlit run app.py
+    ```
+
+---
+
 ## 🚀 How to Replicate
 
 To build a similar "Scenario Explorer" for your own time-series models:
