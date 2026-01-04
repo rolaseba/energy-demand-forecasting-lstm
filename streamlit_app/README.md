@@ -4,7 +4,10 @@
 
 ## ⚡ Overview
 
-This Streamlit application serves as a **Business Intelligence & Forecasting Interface** for the **[Energy Demand Forecasting LSTM](https://github.com/rolaseba/energy-demand-forecasting-lstm)** project.
+This **[Live Streamlit App](https://energy-demand-forecasting-lstm.streamlit.app)** serves as a **Business Intelligence & Forecasting Interface** for the **[Energy Demand Forecasting LSTM](https://github.com/rolaseba/energy-demand-forecasting-lstm)** project.
+
+> **🎯 [Click here to Play with the Live App!](https://energy-demand-forecasting-lstm.streamlit.app)**
+> *Please explore the tool to experience the forecasting capabilities firsthand, this documentation refers to the deployed version.*
 
 It acts as a "Pattern Continuum Explorer," moving away from traditional date-based plotting to an **index-based analysis** that highlights the temporal rhythms (diurnal and weekly cycles) inherent in energy grid data.
 

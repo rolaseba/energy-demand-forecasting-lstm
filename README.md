@@ -2,6 +2,17 @@
 
 ![Electricity Demand Forecast](reports/figs/forecast.png)
 
+## 🎮 Live Demo: Interactive Forecasting App
+
+> **[Click here to Play with the Live App!](https://energy-demand-forecasting-lstm.streamlit.app)**
+
+Explore the **Business Intelligence Interface** for this project. This interactive tool allows you to:
+- **Travel through time** to see historical demand patterns.
+- **Visualize** the model's 24-hour forecasting capabilities in real-time.
+- **Experience** the "Pattern Continuum" analysis used by grid operators.
+
+***
+
 ## 📈 Business Overview
 
 ### Business Problem
@@ -230,6 +241,18 @@ This project demonstrates:
 - ✅ Reproducible research practices
 
 ---
+
+## 🚀 App Deployment
+
+This project includes a fully functional, production-ready Streamlit application located in the `streamlit_app/` folder. This application serves as the deployment frontend, consuming the trained model to provide real-time forecasting.
+
+> **[👉 Click here to Play with the Live App](https://energy-demand-forecasting-lstm.streamlit.app)**
+
+![Streamlit App Screenshot](streamlit_app/figs/screenshot.png)
+
+For details on the app's architecture, recursive forecasting logic, and how to run it locally, please refer to the [Streamlit App Documentation](streamlit_app/README.md).
+
+***
 
 ## 📚 References
 
