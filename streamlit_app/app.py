@@ -46,9 +46,9 @@ st.markdown("""
 @st.cache_data
 def load_data():
     """Load data from standard paths."""
-    # Adjust path to look one level up from streamlit_app/
+    # Path relative to this script
     script_dir = Path(__file__).parent
-    DATA_DIR = script_dir / '../datasets/processed'
+    DATA_DIR = script_dir / 'data'
     
     try:
         original = pd.read_parquet(DATA_DIR / 'original_data.parquet')
@@ -61,7 +61,7 @@ def load_data():
 def load_model_artifacts():
     """Load LSTM model and scaler."""
     script_dir = Path(__file__).parent
-    MODEL_DIR = script_dir / '../model'
+    MODEL_DIR = script_dir / 'model'
     
     try:
         model = load_model(MODEL_DIR / 'best_lstm_model.keras')
@@ -324,7 +324,7 @@ fig.update_layout(
     template="plotly_white"
 )
 
-st.plotly_chart(fig, use_container_width=True)
+st.plotly_chart(fig, width="stretch")
 
 # Insights Section
 st.subheader("Pattern Insights")
